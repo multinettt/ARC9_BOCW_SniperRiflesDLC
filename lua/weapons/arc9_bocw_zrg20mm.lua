@@ -1,13 +1,13 @@
 --=============================================================================
 --   ARC9 CALL OF DUTY: BLACK OPS COLD WAR
 --   SNIPER RIFLES DLC
---   ZRG 20mm
+--   ZRG 20MM
 --=============================================================================
 --[[
 --   SWEP INFORMATION:
 
 --   BASE  : ARC9
---   BUILD : v2025.9
+--   BUILD : v2025.12
 --   SR.NO : 03151994
 
 
@@ -251,7 +251,15 @@ SWEP.ShootWhileSprint = false
 SWEP.Speed = 1
 
 SWEP.SpeedMult = 0.95
-SWEP.SpeedMultSprint = 0.7061403508771929
+
+local SprintMultCvar = GetConVar("arc9_bocw_sprintmultiplier")
+
+if SprintMultCvar:GetBool() then
+    SWEP.SpeedMultSprint = 0.7061403508771929 -- SPRINT SPEED RELATIVE TO MOVE SPEED
+else
+    SWEP.SpeedMultSprint = 1 -- this may possibly change later
+end
+
 SWEP.SpeedMultSights = 0.25
 SWEP.SpeedMultShooting = 0.5
 SWEP.SpeedMultMelee = 0.8
@@ -697,6 +705,22 @@ SWEP.Attachments = {
         CosmeticOnly = true,
     },
 }
+--=========================================================
+-- CUSTOM SLOT INSERTION
+local CustomSlotCvar = GetConVar("arc9_bocw_customslot")
+local CustomSlotTable = {
+    PrintName = "Custom Slot",
+    Bone = "tag_weapon",
+    Pos = Vector(0, 0, 0),
+    Ang = Angle(0, 0, 0),
+    Icon_Offset = Vector(-12, 0, 2.5),
+    Category = {"bocw_custom_slot", "bocw_custom_slot_zrg20mm"},
+}
+
+if CustomSlotCvar:GetBool() then
+    table.insert(SWEP.Attachments, CustomSlotTable)
+end
+--=========================================================
 
 SWEP.Hook_ModifyBodygroups = function(self, data)
 
