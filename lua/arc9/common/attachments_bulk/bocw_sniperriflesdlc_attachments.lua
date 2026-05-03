@@ -27,22 +27,23 @@ ATT.Category = {"bocw_zrg20mm_optic"}
 
 ATT.Sights = {
     {
-        Pos = Vector(0, 8.5, -1.32),
+        Pos = Vector(0.008, 12.5, -1.32),
         Ang = Angle(0, 0, 0),
-        Magnification = 1.5,
-        ViewModelFOV = 70
+        Magnification = 8,
+        ViewModelFOV = 30,
+        Blur = false
     },
 }
 
 ATT.RTScope = true
 ATT.RTScopeSubmatIndex = 2
-ATT.RTScopeMagnification = 8
+ATT.RTScopeMagnification = 1
 ATT.RTScopeReticle = Material("hud/arc9_bocw/reticle_zrg20mm.png", "mips smooth")
-ATT.RTScopeReticleScale = 1.1
-ATT.RTScopeColorable = true
-ATT.RTScopeShadowIntensity = 1
 
-ATT.ScopeScreenRatio = 0.5
+ATT.RTScopeReticleScale = 1.2
+ATT.RTScopeNew_ShadowScale = 0.9
+
+ATT.RTScopeColorable = true
 
 ATT.ModelOffset = Vector(0, 0, -0.11)
 
@@ -851,10 +852,11 @@ ATT.Category = {"bocw_swissk31_optic"}
 
 ATT.Sights = {
     {
-        Pos = Vector(0, 7.6, -0.29),
+        Pos = Vector(0.008, 9.6, -0.29),
         Ang = Angle(0, 0, 0),
         Magnification = 8,
-        ViewModelFOV = 70
+        ViewModelFOV = 30,
+        Blur = false
     },
 }
 
@@ -862,11 +864,11 @@ ATT.RTScope = true
 ATT.RTScopeSubmatIndex = 2
 ATT.RTScopeMagnification = 1
 ATT.RTScopeReticle = Material("hud/arc9_bocw/reticle_swissk31.png", "mips smooth")
-ATT.RTScopeReticleScale = 1
-ATT.RTScopeColorable = true
-ATT.RTScopeShadowIntensity = 1
 
-ATT.ScopeScreenRatio = 0.5
+ATT.RTScopeReticleScale = 0.67
+ATT.RTScopeNew_ShadowScale = 1.9
+
+ATT.RTScopeColorable = false -- TODO: make this toggleable?
 
 ATT.ModelOffset = Vector(0, 0, 0)
 
